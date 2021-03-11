@@ -153,14 +153,14 @@ let addOrUpdateProduct = async () => {
   // url for api call
   const url = `${BASE_URL}/product`
   // New product = POST, Update = PUT or PATCH
-  const httpMethod = 'POST';
+  let httpMethod = 'POST';
 
   // Get the form data
   const formProduct = getProductForm();
   // log to console
   console.log('%cNew Product: ', 'color: green', formProduct);
 
-  // Check if new or update
+  // Check if new product or update
   // Only existing products have formProduct._id > 0
   if (formProduct._id > 0) {
     httpMethod = 'PUT';
@@ -194,7 +194,6 @@ let addOrUpdateProduct = async () => {
 
   // Refresh products list
   loadProducts();
-
 } // End function
 
 //
